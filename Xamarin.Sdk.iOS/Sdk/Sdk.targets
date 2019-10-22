@@ -7,8 +7,8 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <TargetFrameworkRootPath>$(MSBuildThisFileDirectory)../Framework</TargetFrameworkRootPath>
-    <TargetFrameworkDirectory>/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS</TargetFrameworkDirectory>
+    <TargetFrameworkRootPath>$(XamariniOSSdkRootDirectory)Framework</TargetFrameworkRootPath>
+    <TargetFrameworkDirectory>$(XamariniOSSdkRootDirectory)XI/lib/mono/Xamarin.iOS</TargetFrameworkDirectory>
 
     <!-- Needed so we can resolve mscorlib from the target framework dir too -->
     <NoStdLib>true</NoStdLib>
@@ -20,7 +20,7 @@
     <Reference Include="mscorlib" />
   </ItemGroup>
 
-  <Import Project="/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(XamariniOSSdkRootDirectory)XI/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />
 
   <PropertyGroup>
     <PublishDependsOn>

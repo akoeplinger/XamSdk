@@ -12,6 +12,8 @@
 
     <!-- Needed so we can resolve mscorlib from the target framework dir too -->
     <NoStdLib>true</NoStdLib>
+
+    <MSBuildAllProjects Condition="'$(MSBuildToolsVersion)' != 'Current'">$(MSBuildAllProjects);$(MsBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +22,20 @@
 
   <Import Project="/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />
 
+  <PropertyGroup>
+    <PublishDependsOn>
+      Build;
+    </PublishDependsOn>
+  </PropertyGroup>
+
+  <Target Name="Publish"
+        DependsOnTargets="$(PublishDependsOn)"
+        Condition=" '$(IsGraphBuild)' != 'true' ">
+    <Message Importance="High" Text="!!!! PLACEHOLDER FOR PUBLISH TASK !!!!" />
+  </Target>
+
   <Target Name="_CodesignVerify">
     <!-- disable this target from Xamarin.iOS.Common.targets since codesign verify fails -->
   </Target>
+
 </Project>

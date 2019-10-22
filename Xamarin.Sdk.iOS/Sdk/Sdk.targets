@@ -7,8 +7,10 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <TargetFrameworkRootPath>/Library/Frameworks/Mono.framework/External/xbuild-frameworks</TargetFrameworkRootPath>
+    <TargetFrameworkRootPath>$(MSBuildThisFileDirectory)../Framework</TargetFrameworkRootPath>
+    <TargetFrameworkDirectory>/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS</TargetFrameworkDirectory>
 
+    <!-- Needed so we can resolve mscorlib from the target framework dir too -->
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
 
@@ -18,4 +20,7 @@
 
   <Import Project="/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />
 
+  <Target Name="_CodesignVerify">
+    <!-- disable this target from Xamarin.iOS.Common.targets since codesign verify fails -->
+  </Target>
 </Project>

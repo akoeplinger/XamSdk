@@ -18,6 +18,21 @@
 
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="$(MSBuildProjectDirectory)\Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildProjectDirectory)\Info.plist" LogicalName="Info.plist" />
+    <None Include="$(MSBuildProjectDirectory)\Entitlements.plist" LogicalName="Entitlements.plist" />
   </ItemGroup>
 
   <Import Project="$(XamariniOSSdkRootDirectory)XI/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />

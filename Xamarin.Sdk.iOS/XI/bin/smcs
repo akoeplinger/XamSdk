@@ -1,8 +1,0 @@
-#!/bin/bash
-
-SMCS=`which mcs`
-if test -z $SMCS; then
-    SMCS=/Library/Frameworks/Mono.framework/Versions/Current/bin/mcs
-fi
-unset MONO_PATH
-$SMCS -nostdlib -r:/Library/Frameworks/Xamarin.iOS.framework/Versions/13.4.0.2/lib/mono/2.1/mscorlib.dll -r:/Library/Frameworks/Xamarin.iOS.framework/Versions/13.4.0.2/lib/mono/2.1/System.dll "$@"

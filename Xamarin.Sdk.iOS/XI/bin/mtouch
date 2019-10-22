@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec /Library/Frameworks/Mono.framework/Commands/mono64 --debug /Library/Frameworks/Xamarin.iOS.framework/Versions/13.4.0.2/lib/mtouch/mtouch.exe "$@"
+exec dotnet exec $MD_MTOUCH_SDK_ROOT/lib/mtouch/mtouch.exe "$@"

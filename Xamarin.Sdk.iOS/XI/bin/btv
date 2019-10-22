@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-exec /Library/Frameworks/Mono.framework/Versions/Current/bin/mono64 --debug /Library/Frameworks/Xamarin.iOS.framework/Versions/13.4.0.2/lib/bgen/bgen.exe --target-framework=Xamarin.TVOS,v1.0 "$@"
+exec dotnet exec $MD_MTOUCH_SDK_ROOT/lib/bgen/bgen.exe --target-framework=Xamarin.TVOS,v1.0 "$@"

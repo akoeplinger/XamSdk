@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <TargetFrameworkRootPath>$(XamariniOSSdkRootDirectory)Framework</TargetFrameworkRootPath>
-    <TargetFrameworkDirectory>$(XamariniOSSdkRootDirectory)XI/lib/mono/Xamarin.iOS</TargetFrameworkDirectory>
+    <TargetFrameworkDirectory>$(XamariniOSSdkRootDirectory)XI\lib\mono\Xamarin.iOS</TargetFrameworkDirectory>
 
     <!-- Needed so we can resolve mscorlib from the target framework dir too -->
     <NoStdLib>true</NoStdLib>
@@ -35,7 +35,7 @@
     <None Include="$(MSBuildProjectDirectory)\Entitlements.plist" LogicalName="Entitlements.plist" />
   </ItemGroup>
 
-  <Import Project="$(XamariniOSSdkRootDirectory)XI/lib/msbuild/iOS/Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(XamariniOSSdkRootDirectory)XI\lib\msbuild\iOS\Xamarin.iOS.CSharp.targets" />
 
   <PropertyGroup>
     <PublishDependsOn>

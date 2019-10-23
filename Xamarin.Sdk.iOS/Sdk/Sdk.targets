@@ -12,8 +12,14 @@
 
     <!-- Needed so we can resolve mscorlib from the target framework dir too -->
     <NoStdLib>true</NoStdLib>
+    <!-- Suppress warning about not finding System.Drawing.Common.dll -->
+    <DisableExtraReferences>true</DisableExtraReferences>
 
     <MSBuildAllProjects Condition="'$(MSBuildToolsVersion)' != 'Current'">$(MSBuildAllProjects);$(MsBuildThisFileFullPath)</MSBuildAllProjects>
+
+    <MlaunchPath>$(XamariniOSSdkRootDirectory)XI\lib\mlaunch\mlaunch.app\Contents\MacOS\mlaunch</MlaunchPath>
+    <RunCommand>$(MlaunchPath)</RunCommand>
+    <RunArguments>--launchsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-1,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11</RunArguments>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,7 +52,9 @@
   <Target Name="Publish"
         DependsOnTargets="$(PublishDependsOn)"
         Condition=" '$(IsGraphBuild)' != 'true' ">
-    <Message Importance="High" Text="!!!! PLACEHOLDER FOR PUBLISH TASK !!!!" />
+    <Exec Condition="'$(Platform)' == 'iPhoneSimulator'" Command="$(MlaunchPath) --installsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-1,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11" />
+    <Exec Condition="'$(Platform)' == 'iPhone'" Command="$(MlaunchPath) --installdev=$(OutputPath)\$(AssemblyName).app" />
+    <Message Importance="High" Text="!!!! Publishing done !!!!" />
   </Target>
 
   <Target Name="_CodesignVerify">

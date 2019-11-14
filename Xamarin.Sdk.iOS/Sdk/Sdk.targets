@@ -19,7 +19,7 @@
 
     <MlaunchPath>$(XamariniOSSdkRootDirectory)XI\lib\mlaunch\mlaunch.app\Contents\MacOS\mlaunch</MlaunchPath>
     <RunCommand>$(MlaunchPath)</RunCommand>
-    <RunArguments>--launchsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-1,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11</RunArguments>
+    <RunArguments>--launchsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-2,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11</RunArguments>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,7 +52,7 @@
   <Target Name="Publish"
         DependsOnTargets="$(PublishDependsOn)"
         Condition=" '$(IsGraphBuild)' != 'true' ">
-    <Exec Condition="'$(Platform)' == 'iPhoneSimulator'" Command="$(MlaunchPath) --installsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-1,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11" />
+    <Exec Condition="'$(Platform)' == 'iPhoneSimulator'" Command="$(MlaunchPath) --installsim=$(OutputPath)\$(AssemblyName).app --device=:v2:runtime=com.apple.CoreSimulator.SimRuntime.iOS-13-2,devicetype=com.apple.CoreSimulator.SimDeviceType.iPhone-11" />
     <Exec Condition="'$(Platform)' == 'iPhone'" Command="$(MlaunchPath) --installdev=$(OutputPath)\$(AssemblyName).app" />
     <Message Importance="High" Text="!!!! Publishing done !!!!" />
   </Target>
